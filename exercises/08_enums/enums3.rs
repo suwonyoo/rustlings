@@ -44,6 +44,14 @@ impl State {
     }
 
     fn process(&mut self, message: Message) {
+        // Message는 바뀌기 위한 값들, Input값임.
+        match message {
+            Message::Resize{width,height} => self.resize(width,height),
+            Message::Move(point_struct) => self.move_position(point_struct),
+            Message::Echo(string)=> self.echo(string),
+            Message::ChangeColor(red, green, blue)=> self.change_color(red, green, blue),
+            Message::Quit => self.quit()
+        }
         // TODO: Create a match expression to process the different message
         // variants using the methods defined above.
     }
@@ -72,7 +80,7 @@ mod tests {
             width: 10,
             height: 30,
         });
-        state.process(Message::Move(Point { x: 10, y: 15 }));
+        state.process(Message::Move(Point{ x: 10, y: 15 }));
         state.process(Message::Echo(String::from("Hello world!")));
         state.process(Message::ChangeColor(255, 0, 255));
         state.process(Message::Quit);

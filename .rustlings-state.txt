@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-modules1
+enums3
 
 intro1
 intro2
@@ -25,6 +25,11 @@ primitive_types3
 primitive_types4
 primitive_types5
 primitive_types6
+structs1
+structs2
+structs3
+enums1
+enums2
 strings1
 strings2
 strings3
